@@ -7,8 +7,8 @@ if (-Not (Test-Path $outputDir)) {
     New-Item -ItemType Directory -Path $outputDir | Out-Null
 }
 
-# Find all mkv, mp4, and avi files recursively, but skip anything already inside converted/
-Get-ChildItem -Path $baseDir -Recurse -File -Include *.mkv, *.mp4, *.avi |
+# Find all mkv, mp4, avi, and divx files recursively, but skip anything already inside converted/
+Get-ChildItem -Path $baseDir -Recurse -File -Include *.mkv, *.mp4, *.avi, *.divx |
     Where-Object { $_.FullName -notlike "$outputDir*" } |
     ForEach-Object {
 
